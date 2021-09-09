@@ -43,7 +43,13 @@ controller.addOne = async ( req, res, next ) => {
         try {
 
             // file parse
-            const file = files.foodImg;
+            const { file } = files;
+
+            // file size check
+            if( file.size > 5 * 1024 * 1024 ) { 
+                
+                return next( new Error( 'File size is over the 5MB limit.' ));
+            }
             
             // file rename with proper extention
             const _id = new mongoose.Types.ObjectId();
@@ -59,8 +65,8 @@ controller.addOne = async ( req, res, next ) => {
             // updating item model
             itemModel._id = _id;
             itemModel.img = img;
-            itemModel.name = fields.foodName;
-            itemModel.type = fields.foodType;
+            itemModel.name = fields.name;
+            itemModel.type = fields.type;
 
             // creating new item
             const data = await new controller.model( itemModel );

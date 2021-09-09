@@ -19,26 +19,26 @@
     <main class="container" >
 
         <!-- foods form -->
-        <form action="food" method="POST" enctype="multipart/form-data" class="row col-12 col-md-8 col-xl-6 mx-auto my-4 border rounded p-3 bg-light shadow">
+        <form id="foodForm" action="food" method="POST" enctype="multipart/form-data" class="row col-12 col-md-8 col-xl-6 mx-auto mt-3 border rounded p-3 bg-light shadow">
 
             <h2 class="h3">Dodaj nową potrawę</h2>
 
             <!-- food name input -->
             <div class="mb-4 col-12">
                 <label for="foodName" class="form-label">Nazwa potrawy:</label>
-                <input type="text" class="form-control" id="foodName" name="foodName">
+                <input type="text" class="form-control" id="foodName" name="name">
             </div>
 
-            <!-- food type input -->
+            <!-- food type select -->
             <div class="mb-4 col-12">
                 <label for="foodType" class="form-label">Rodzaj potrawy:</label>
-                <input type="text" class="form-control" id="foodType" name="foodType">
+                <select type="text" class="form-select" id="foodType" name="type"></select>
             </div>
 
             <!-- food img input -->
             <div class="mb-4 col-12">
                 <label for="foodImg" class="form-label">Zdjęcie potrawy:</label>
-                <input type="file" class="form-control" id="foodImg" name="foodImg">
+                <input type="file" class="form-control" id="foodImg" name="file">
             </div>
 
             <!-- form submit input -->
@@ -49,14 +49,14 @@
         </form>
 
         <!-- types form -->
-        <form action="type" method="POST" enctype="multipart/form-data" class="row col-12 col-md-8 col-xl-6 mx-auto my-4 border rounded p-3 bg-light shadow">
+        <form id="typeForm" action="type" method="POST" enctype="application/x-www-form-urlencoded" class="row col-12 col-md-8 col-xl-6 mx-auto mt-3 border rounded p-3 bg-light shadow">
 
             <h2 class="h3">Dodaj nową kategorię</h2>
 
             <!-- food name input -->
             <div class="mb-4 col-12">
-                <label for="foodName" class="form-label">Nazwa kategorii:</label>
-                <input type="text" class="form-control" id="foodName" name="foodName">
+                <label for="typeName" class="form-label">Nazwa kategorii:</label>
+                <input type="text" class="form-control" id="typeName" name="name">
             </div>
 
             <!-- form submit input -->

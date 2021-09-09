@@ -23,7 +23,7 @@ exports.catchAll = async ( err, req, res, next ) => {
     res.status( err.status || 500 );
 
     // global on error final response
-    res.json({ status: 'fail', success: false, message: err.message });
+    res.json({ statusText: 'FAIL', success: false, message: err.message });
 };
 
 
