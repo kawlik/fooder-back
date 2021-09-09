@@ -7,7 +7,6 @@ const config = require( './utility/config' );
 const error = require( './utility/error' );
 
 // local routers
-const indexRouter = require( './routes/index' );
 const foodRouter = require( './routes/food' );
 
 
@@ -32,13 +31,13 @@ const app = express();
 /*   *   *   *   *   *   *   *   *   *   */
 
 app.use( express.urlencoded({ extended: true }));
+app.use( express.static( 'public' ));
 app.use( express.json() );
 
 
 /*  Routes
 /*   *   *   *   *   *   *   *   *   *   */
 
-app.use( '/', indexRouter );
 app.use( '/food', foodRouter );
 
 

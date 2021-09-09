@@ -6,7 +6,6 @@ const formidable = require( 'formidable' );
 const path = require( 'path' );
 
 const mongoose = require( 'mongoose' );
-const crypto = require( 'crypto' );
 const fs = require( 'fs' );
 
 // controller init
@@ -47,7 +46,7 @@ controller.addOne = async ( req, res, next ) => {
             const file = files.foodImg;
             
             // file rename with proper extention
-            const _id = mongoose.Types.ObjectId();
+            const _id = new mongoose.Types.ObjectId();
             const img = _id.toString() + path.extname( file.name );
 
             // saving file on server
