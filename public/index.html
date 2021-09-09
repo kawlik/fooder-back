@@ -5,13 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <style>
+
+        body {
+
+            height: 100vh;
+            width: 100vw;
+
+            overflow-x: hidden;
+
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+    </style>
 
     <title>Document</title>
 
 </head>
 <body>
     
-    <h1>Hello!</h1>
+    <main class="container" >
+
+        <form action="food" method="POST" enctype="multipart/form-data" class="row col-12 col-md-8 col-xl-6 mx-auto border rounded p-3 bg-light shadow ">
+
+            <!-- food name input -->
+            <div class="mb-4 col-12">
+                <label for="foodName" class="form-label">Food name:</label>
+                <input type="text" class="form-control" id="foodName" name="foodName" value="test">
+            </div>
+
+            <!-- food type input -->
+            <div class="mb-4 col-12">
+                <label for="foodType" class="form-label">Food type:</label>
+                <input type="text" class="form-control" id="foodType" name="foodType" value="test">
+            </div>
+
+            <!-- food img input -->
+            <div class="mb-4 col-12">
+                <label for="foodImg" class="form-label">Food img:</label>
+                <input type="file" class="form-control" id="foodImg" name="foodImg">
+            </div>
+
+            <!-- form submit input -->
+            <div class="mb-1 col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+
+    </main>
 
 </body>
 </html>

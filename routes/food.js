@@ -19,7 +19,7 @@ router.get( '/id/:id', controller.findOneByID );
 /*   *   *   *   *   *   *   *   *   *   */
 
 // inserts new item
-router.get( '/', controller.addOne );
+router.post( '/', controller.addOne );
 
 
 /*  Router export
