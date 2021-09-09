@@ -8,6 +8,7 @@ const error = require( './utility/error' );
 
 // local routers
 const foodRouter = require( './routes/food' );
+const typeRouter = require( './routes/type' );
 
 
 /*  App & db init
@@ -39,6 +40,7 @@ app.use( express.json() );
 /*   *   *   *   *   *   *   *   *   *   */
 
 app.use( '/food', foodRouter );
+app.use( '/type', typeRouter );
 
 
 /*  Error handlers

@@ -7,79 +7,82 @@ class Controller {
 
         this.model = model;
     };
-};
 
+    /*  CREATE actions
+    /*   *   *   *   *   *   *   *   *   *   */
 
-/*  CREATE actions
-/*   *   *   *   *   *   *   *   *   *   */
+    // tries to insert new item and returns action status
+    addOne = async ( req, res, next ) => {
 
-// tries to insert new item and returns action status
-Controller.prototype.addOne = async ( req, res, next ) => {
+        // parsing req body
+        const { body } = req;
 
-    // parsing req body
-    const { body } = req;
+        try {
 
-    try {
+            // creating new item
+            const data = await new this.model( body );
 
-        // creating new item
-        const data = await new this.model( body );
+            // saving new item
+            await data.save();
 
-        // saving new item
-        await data.save();
+            // action success final response
+            return res.status( 201 ).json( data );
 
-        // action success final response
-        return res.status( 201 ).json( data );
+        } catch( err ) {
 
-    } catch( err ) {
-
-        // error event
-        return next( err );
+            // error event
+            return next( err );
+        };
     };
-};
 
 
-/*  READ actions
-/*   *   *   *   *   *   *   *   *   *   */
+    /*  READ actions
+    /*   *   *   *   *   *   *   *   *   *   */
 
-// returns an array of all available items
-Controller.prototype.findAll = async ( req, res, next ) => {
+    // returns an array of all available items
+    findAll = async ( req, res, next ) => {
 
-    try {
-    
-        // data fetch
-        const data = await this.model.find();
-    
-        // action success final response
-        return res.status( 200 ).json( data );
-    
-    } catch( err ) {
-    
-        // error event
-        return next( err );
+        try {
+        
+            // data fetch
+            const data = await this.model.find();
+        
+            // action success final response
+            return res.status( 200 ).json( data );
+        
+        } catch( err ) {
+        
+            // error event
+            return next( err );
+        };
     };
-};
 
-// returns matched item or null
-Controller.prototype.findOneByID = async ( req, res, next ) => {
+    // returns matched item or null
+    findOneByID = async ( req, res, next ) => {
 
-    // parsing params
-    const { id } = req.params;
+        // parsing params
+        const { id } = req.params;
 
-    try {
+        try {
 
-        // data fetch
-        const data = await this.model.findOne({ _id: id });
+            // data fetch
+            const data = await this.model.findOne({ _id: id });
 
-        // action success final response
-        return res.status( 200 ).json( data );
+            // action success final response
+            return res.status( 200 ).json( data );
 
-    } catch( err ) {
+        } catch( err ) {
 
-        // error event
-        return next( err );
+            // error event
+            return next( err );
+        };
     };
-};
 
+
+    /*  OTHER actions
+    /*   *   *   *   *   *   *   *   *   *   */
+
+};
 
 /*  Controller export
 /*   *   *   *   *   *   *   *   *   *   */
