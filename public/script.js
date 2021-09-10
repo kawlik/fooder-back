@@ -35,4 +35,8 @@ const insertTypes = async ( selectSelector ) => {
 
 /*   *   *   *   *   *   *   *   *   *   */
 
-document.addEventListener( 'DOMContentLoaded', insertTypes( '#foodType' ));
+document.addEventListener( 'DOMContentLoaded', () => {
+
+    // insert proper types into form
+    insertTypes( '#foodType' )
+});

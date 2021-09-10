@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Token</title>
+
+</head>
+<body>
+    
+    <main class="container mt-5">
+
+        
+        <section class="row col-12 col-md-9 col-xl-7 mx-auto border rounded p-3 bg-light shadow">
+
+            <h2 class="display-6">Twój indywidualny token logowania:</h2>
+
+            <hr>
+            
+            <div class="col-8">
+                <input value=<%= auth %> disabled readonly type="text" class="form-control form-control-lg" id="authReadOnly" >
+            </div>
+
+            <div class="col-4">
+                <button type="button" class="btn btn-secondary form-control h-100" id="copyButton">Kopiuj</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        const auth = document.querySelector( '#authReadOnly' );
+        const copy = document.querySelector( '#copyButton' );
+
+        copy.addEventListener( 'click', async ( e ) => {
+            e.preventDefault();
+
+            await navigator.clipboard.writeText( auth.value );
+        });
+
+    </script>
+
+</body>
+</html>

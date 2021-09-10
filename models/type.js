@@ -8,6 +8,9 @@ const schema = new mongoose.Schema({
 
     // type name
     name: { type: String, required: true, },
+
+    // type leead color
+    color: { type: String, required: true, },
 });
 
 

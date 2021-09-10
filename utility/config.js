@@ -14,6 +14,25 @@ exports.db = {
 };
 
 
+/*  Facebook passport setings
+/*   *   *   *   *   *   *   *   *   *   */
+
+exports.passport = {
+
+    // passport cielnt ID
+    clientID: "1197919644023613",
+
+    // passport client secret key
+    clientSecret: "85b366e77584d89ac68636d36c5442cb",
+
+    // passport success return path
+    callbackURL: "http://localhost:8080/auth/facebook/callback",
+
+    // required data
+    profileFields: [ 'id', 'name', 'picture' ],
+};
+
+
 /*  Server setings
 /*   *   *   *   *   *   *   *   *   *   */
 

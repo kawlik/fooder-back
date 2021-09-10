@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "clear && nodemon server.js",
+    "start": "clear && node server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,10 @@
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "mongoose": "^6.0.5"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0"
   }
 }

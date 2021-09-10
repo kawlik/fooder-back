@@ -26,7 +26,7 @@ class Controller {
             await data.save();
 
             // action success final response
-            return res.status( 201 ).json( data );
+            return res.status( 200 ).json( data );
 
         } catch( err ) {
 

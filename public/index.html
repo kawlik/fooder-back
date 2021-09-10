@@ -21,7 +21,7 @@
         <!-- foods form -->
         <form id="foodForm" action="food" method="POST" enctype="multipart/form-data" class="row col-12 col-md-8 col-xl-6 mx-auto mt-3 border rounded p-3 bg-light shadow">
 
-            <h2 class="h3">Dodaj nową potrawę</h2>
+            <h2 class="display-6">Dodaj nową potrawę</h2>
 
             <!-- food name input -->
             <div class="mb-4 col-12">
@@ -51,12 +51,18 @@
         <!-- types form -->
         <form id="typeForm" action="type" method="POST" enctype="application/x-www-form-urlencoded" class="row col-12 col-md-8 col-xl-6 mx-auto mt-3 border rounded p-3 bg-light shadow">
 
-            <h2 class="h3">Dodaj nową kategorię</h2>
+            <h2 class="display-6">Dodaj nową kategorię</h2>
 
-            <!-- food name input -->
-            <div class="mb-4 col-12">
+            <!-- type name input -->
+            <div class="mb-4 col-12 col-sm-8">
                 <label for="typeName" class="form-label">Nazwa kategorii:</label>
                 <input type="text" class="form-control" id="typeName" name="name">
+            </div>
+            
+            <!-- type name input -->
+            <div class="mb-4 col-12 col-sm-4">
+                <label for="typeColor" class="form-label">Kolor kategorii:</label>
+                <input type="color" class="form-control form-control-color" id="typeColor" name="color" value="#cccccc">
             </div>
 
             <!-- form submit input -->
@@ -65,6 +71,14 @@
             </div>
 
         </form>
+
+
+        <!-- facebook form -->
+        <div id="facebookForm" class="row col-12 col-md-8 col-xl-6 mx-auto mt-3 border rounded p-3 bg-light shadow">
+
+            <a id="faceboolLogin" target="blank" href="auth/facebook" class="h3 btn btn-primary">Zaloguj z facebook</a>
+        
+        </div>
 
     </main>
 
