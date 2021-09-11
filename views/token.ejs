@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <main class="container mt-5">
+    <main class="container my-5">
 
         
         <section class="row col-12 col-md-9 col-xl-7 mx-auto border rounded p-3 bg-light shadow">
@@ -24,14 +24,24 @@
             <hr>
             
             <div class="col-8">
-                <input value=<%= auth %> disabled readonly type="text" class="form-control form-control-lg" id="authReadOnly" >
+                <input value=<%= auth %> disabled readonly type="password" class="form-control form-control-lg" id="authReadOnly" >
             </div>
 
             <div class="col-4">
                 <button type="button" class="btn btn-secondary form-control h-100" id="copyButton">Kopiuj</button>
             </div>
 
+            <div class="col-12 m-3 form-check form-switch">
+                <input class="form-check-input" id="showCheckbox" type="checkbox">
+                <label class="form-check-label" for="showCheckbox">Pokaż token</label>
+            </div>
+
+            <div class="col-12 mt-3 ">
+                <a id="faceboolLogin" href="/" class="h3 btn btn-primary form-control">Wróć do strony głównej</a>
+            </div>
+
         </section>
+
 
     </main>
 
@@ -39,11 +49,27 @@
 
         const auth = document.querySelector( '#authReadOnly' );
         const copy = document.querySelector( '#copyButton' );
+        const show = document.querySelector( '#showCheckbox' );
 
         copy.addEventListener( 'click', async ( e ) => {
             e.preventDefault();
 
             await navigator.clipboard.writeText( auth.value );
+        });
+
+        show.addEventListener( 'change', ( e ) => {
+
+            if( e.target.checked ) {
+                auth.type = 'text';
+
+            } else {
+                auth.type = 'password';
+            }
+        });
+
+        document.addEventListener( 'DOMContentLoaded', () => {
+
+            navigator.clipboard.writeText( auth.value );
         });
 
     </script>
