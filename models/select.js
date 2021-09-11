@@ -7,7 +7,7 @@ const mongoose = require( 'mongoose' );
 const schema = new mongoose.Schema({
 
     // selection participants
-    participants: { type: Array, required: true, default: [], },
+    participants: { type: Array, required: true, },
     realizedBy: { type: Array, required: true, default: [], },
 
     // selection sets

@@ -14,6 +14,9 @@ const schema = new mongoose.Schema({
 
     // food img url based on ObjectId
     img: { type: String, required: true, },
+
+    // food users score
+    score: { type: Number, default: 0, },
 });
 
 

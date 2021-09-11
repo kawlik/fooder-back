@@ -15,7 +15,7 @@ router.get( '/', controller.findAll );
 router.get( '/id/:id', controller.findOneByID );
 
 // returns newest added undone select competition
-router.get( '/newest', controller.findNewest );
+router.get( '/newest/:user', controller.findNewest );
 
 
 /*  POST routes
@@ -23,6 +23,13 @@ router.get( '/newest', controller.findNewest );
 
 // inserts new item
 router.post( '/', controller.addOne );
+
+
+/*  PUT routes
+/*   *   *   *   *   *   *   *   *   *   */
+
+// update specified item item
+router.put( '/id/:id', controller.updateOne );
 
 
 /*  Router export
