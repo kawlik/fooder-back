@@ -16,6 +16,7 @@
     "mongoose": "^6.0.5"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0"

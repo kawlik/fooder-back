@@ -17,7 +17,7 @@ controller.getOneByAuth = async ( req, res, next ) => {
     try {
 
         // data fetch
-        const data = await this.model.findOne({ auth: auth });
+        const data = await controller.model.findOne({ auth: auth });
 
         // action success final response
         return res.status( 200 ).json( data );
