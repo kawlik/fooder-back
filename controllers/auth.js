@@ -24,7 +24,7 @@ controller.authSuccess = async ( req, res, next ) => {
 
         // parsing request
         const auth = req.user.id;
-        const body = req.user;
+        const body = req.user._json;
 
         // checking database for user
         const test = await controller.model.find({ auth: auth });
@@ -34,6 +34,9 @@ controller.authSuccess = async ( req, res, next ) => {
             
             // creating new item
             const data = await new controller.model({ auth, body });
+
+            // user secret id delete
+            delete data.body.id;
     
             // saving new item
             await data.save();

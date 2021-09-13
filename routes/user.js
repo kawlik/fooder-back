@@ -8,11 +8,11 @@ const controller = require( '../controllers/user' );
 /*  GET routes
 /*   *   *   *   *   *   *   *   *   *   */
 
-// returns all available items
-router.get( '/', controller.findAll );
-
 // returns specified item or null
 router.get( '/id/:id', controller.findOneByID );
+
+// returns all available items matched by name
+router.get( '/name/:name', controller.findAllByName );
 
 // returns all available items
 router.get( '/auth/:auth', controller.getOneByAuth );

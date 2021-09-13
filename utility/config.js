@@ -29,7 +29,7 @@ exports.passport = {
     callbackURL: "http://localhost:8080/auth/facebook/callback",
 
     // required data
-    profileFields: [ 'id', 'name', 'picture' ],
+    profileFields: [ 'id', 'displayName', 'picture' ],
 };
 
 

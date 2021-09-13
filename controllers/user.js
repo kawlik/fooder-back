@@ -8,6 +8,48 @@ const controller = new Controller( model );
 /*  Custom actions
 /*   *   *   *   *   *   *   *   *   *   */
 
+// returns specified item or null
+controller.findOneByID = async ( req, res, next ) => {
+
+        // parsing params
+        const { id } = req.params;
+
+        try {
+    
+            // data fetch
+            const data = await controller.model.find({ _id: id }, { body: 1 });
+            
+            // action success final response
+            return res.status( 200 ).json( data );
+    
+        } catch( err ) {
+    
+            // error event
+            return next( err );
+        };
+};
+
+// returns all available items matched by name
+controller.findAllByName = async ( req, res, next ) => {
+
+        // parsing params
+        const { name } = req.params;
+
+        try {
+    
+            // data fetch
+            const data = await controller.model.find({ 'body.name': name }, { body: 1 });
+    
+            // action success final response
+            return res.status( 200 ).json( data );
+    
+        } catch( err ) {
+    
+            // error event
+            return next( err );
+        };
+};
+
 // returns user based on individual auth token
 controller.getOneByAuth = async ( req, res, next ) => {
 
