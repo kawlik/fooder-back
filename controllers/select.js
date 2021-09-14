@@ -17,7 +17,7 @@ controller.findNewest = async ( req, res, next ) => {
     try {
         
         // data fetch
-        const data = await controller.model.find({ participanst: user }).sort({ _id: -1 }).limit( 3 );
+        const data = await controller.model.find({ participanst: user, done: true }).sort({ _id: -1 });
     
         // action success final response
         return res.status( 200 ).json( data );

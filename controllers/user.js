@@ -17,7 +17,7 @@ controller.findOneByID = async ( req, res, next ) => {
         try {
     
             // data fetch
-            const data = await controller.model.find({ _id: id }, { body: 1 });
+            const data = await controller.model.findOne({ _id: id }, { body: 1 });
             
             // action success final response
             return res.status( 200 ).json( data );
