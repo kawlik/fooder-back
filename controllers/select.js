@@ -29,6 +29,27 @@ controller.findNewest = async ( req, res, next ) => {
     };
 };
 
+// returns last added undone item
+controller.findWaiting = async ( req, res, next ) => {
+
+    // parsing params
+    const { user } = req.param;
+
+    try {
+        
+        // data fetch
+        const data = await controller.model.find({ participanst: user, done: false });
+    
+        // action success final response
+        return res.status( 200 ).json( data );
+    
+    } catch( err ) {
+    
+        // error event
+        return next( err );
+    };
+};
+
 // updates one select
 controller.updateOne = async ( req, res, next ) => {
 

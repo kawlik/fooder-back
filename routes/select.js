@@ -14,8 +14,11 @@ router.get( '/', controller.findAll );
 // returns specified item or null
 router.get( '/id/:id', controller.findOneByID );
 
-// returns newest added undone select competition
+// returns newest added done select competition
 router.get( '/newest/:user', controller.findNewest );
+
+// returns newest added undone select competition
+router.get( '/waiting/:user', controller.findWaiting );
 
 
 /*  POST routes
