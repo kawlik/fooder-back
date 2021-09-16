@@ -12,12 +12,12 @@ const controller = new Controller( model );
 controller.findNewest = async ( req, res, next ) => {
 
     // parsing params
-    const { user } = req.param;
+    const { user } = req.params;
 
     try {
         
         // data fetch
-        const data = await controller.model.find({ participanst: user, done: true }).sort({ _id: -1 });
+        const data = await controller.model.find({ participants: user, done: true }).sort({ _id: -1 });
     
         // action success final response
         return res.status( 200 ).json( data );
@@ -33,12 +33,12 @@ controller.findNewest = async ( req, res, next ) => {
 controller.findWaiting = async ( req, res, next ) => {
 
     // parsing params
-    const { user } = req.param;
+    const { user } = req.params;
 
     try {
         
         // data fetch
-        const data = await controller.model.find({ participanst: user, done: false });
+        const data = await controller.model.find({ participants: user, realizedBy: { '$ne': user }, done: false });
     
         // action success final response
         return res.status( 200 ).json( data );
@@ -90,7 +90,7 @@ controller.updateOne = async ( req, res, next ) => {
 
                 // result parse
                 const result = data.sets.reduce(( prev, next ) => [ ...prev, ...next ]);
-                result.sort(( prev, next ) => prev?._id > next?._id ? -1 : 1 );
+                result.sort(( prev, next ) => prev._id < next._id ? 1 : -1 );
 
                 // result calculate
                 data.result = [];
@@ -114,6 +114,7 @@ controller.updateOne = async ( req, res, next ) => {
             };
 
             // data volume reduce
+            data.result.sort(( prev, next ) => prev.score < next.score ? 1 : -1 ).splice( 3 );
             data.sets = [];
 
             // data save
@@ -130,6 +131,25 @@ controller.updateOne = async ( req, res, next ) => {
     };
 };
 
+// delets one item
+controller.deleteOne = async ( req, res, next ) => {
+
+    // parsing request
+    const { id } = req.params;
+
+    try {
+
+        // deleting
+        await controller.model.deleteOne({ _id: id });
+
+        // action success final response
+        return res.status( 204 ).end();
+
+    } catch( err ) {
+
+        return next( err );
+    }
+}
 
 /*  Controller export
 /*   *   *   *   *   *   *   *   *   *   */

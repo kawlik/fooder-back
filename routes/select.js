@@ -35,6 +35,14 @@ router.post( '/', controller.addOne );
 router.put( '/id/:id', controller.updateOne );
 
 
+/*  PUT routes
+/*   *   *   *   *   *   *   *   *   *   */
+
+// deletes selected select
+router.delete( '/:id', controller.deleteOne );
+
+
+
 /*  Router export
 /*   *   *   *   *   *   *   *   *   *   */
 
