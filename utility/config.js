@@ -20,10 +20,10 @@ exports.db = {
 exports.passport = {
 
     // passport cielnt ID
-    clientID: "1197919644023613",
+    clientID: "959806254572486",
 
     // passport client secret key
-    clientSecret: "85b366e77584d89ac68636d36c5442cb",
+    clientSecret: "63282e12e12dffd580846ec8b5c8a7d5",
 
     // passport success return path
     callbackURL: "http://localhost:8080/auth/facebook/callback",

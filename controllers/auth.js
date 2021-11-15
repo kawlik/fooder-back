@@ -31,6 +31,9 @@ controller.authSuccess = async ( req, res, next ) => {
 
         // length check
         if( !test.length ) {
+
+            // profile picture revrite
+            body.picture.data.url = new URL( `https://graph.facebook.com/${ auth }/picture?type=square` );
             
             // creating new item
             const data = await new controller.model({ auth, body });
